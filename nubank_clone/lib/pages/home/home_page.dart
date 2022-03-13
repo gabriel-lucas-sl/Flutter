@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:nubank_clone/pages/home/widgets/menu_app.dart';
 import 'package:nubank_clone/pages/home/widgets/my_app_bar.dart';
 import 'package:nubank_clone/pages/home/widgets/my_dots_app.dart';
 import 'package:nubank_clone/pages/home/widgets/page_view_app.dart';
@@ -42,6 +43,10 @@ class _HomePageState extends State<HomePage> {
                   _showMenu ? _screenHeight * .75 : _screenHeight * .24;
             });
           },
+        ),
+        MenuApp(
+          top: _screenHeight * .20,
+          toogleMenu: _showMenu,
         ),
         PageViewApp(
           // !_showMenu ? _screenHeight * .24 : _screenHeight * .75,
@@ -95,6 +100,7 @@ class _HomePageState extends State<HomePage> {
         MyDotsApp(
           top: _screenHeight * .70,
           currentIndex: _currentIndex,
+          toogleMenu: _showMenu,
         ),
       ]),
     );
