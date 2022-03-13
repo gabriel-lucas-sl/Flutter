@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:nubank_clone/pages/home/widgets/my_app_bar.dart';
+import 'package:nubank_clone/pages/home/widgets/my_dots_app.dart';
+import 'package:nubank_clone/pages/home/widgets/page_view_app.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -10,15 +12,19 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   late bool _showMenu;
+  late int _currentIndex;
 
   @override
   void initState() {
     super.initState();
     _showMenu = false;
+    _currentIndex = 0;
   }
 
   @override
   Widget build(BuildContext context) {
+    double _screenHeight = MediaQuery.of(context).size.height;
+
     return Scaffold(
       backgroundColor: Colors.purple[800],
       body: Stack(alignment: Alignment.topCenter, children: <Widget>[
@@ -29,6 +35,20 @@ class _HomePageState extends State<HomePage> {
               _showMenu = !_showMenu;
             });
           },
+        ),
+        PageViewApp(
+          top: _screenHeight,
+          onChanged: (index) {
+            setState(() {
+              _currentIndex = index;
+            });
+          },
+        ),
+        Positioned(
+          top: _screenHeight * .70,
+          child: MyDotsApp(
+            currentIndex: _currentIndex,
+          ),
         ),
       ]),
     );
