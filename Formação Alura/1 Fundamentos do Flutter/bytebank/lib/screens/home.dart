@@ -1,8 +1,15 @@
 import 'package:bytebank/screens/transfer_form.dart';
 import 'package:flutter/material.dart';
 
-class Home extends StatelessWidget {
+class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
+
+  @override
+  State<Home> createState() => _HomeState();
+}
+
+class _HomeState extends State<Home> {
+  final List<Transfer> _transfers = [];
 
   @override
   Widget build(BuildContext context) {
@@ -10,9 +17,31 @@ class Home extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Transferências'),
       ),
-      body: const TransferForm(),
+      body: _transfers.isNotEmpty
+          ? TransferList(transfers: _transfers)
+          : const Center(
+              child: SizedBox(
+                child: Text(
+                  'Lista vazia...',
+                  style: TextStyle(fontSize: 14),
+                ),
+              ),
+            ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () {},
+        onPressed: () {
+          final Future future =
+              Navigator.push(context, MaterialPageRoute(builder: (context) {
+            return TransferForm();
+          }));
+          future.then((transfer) => {
+                if (transfer != null)
+                  {
+                    setState(() {
+                      _transfers.add(transfer);
+                    })
+                  }
+              });
+        },
         child: const Icon(
           Icons.add,
         ),
@@ -22,16 +51,16 @@ class Home extends StatelessWidget {
 }
 
 class TransferList extends StatelessWidget {
-  const TransferList({Key? key}) : super(key: key);
+  final List<Transfer> transfers;
+  const TransferList({Key? key, required this.transfers}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        TransferItem(transfer: Transfer(100.0, 1000)),
-        TransferItem(transfer: Transfer(400.0, 1004)),
-        TransferItem(transfer: Transfer(300.0, 1041)),
-      ],
+    return ListView.builder(
+      itemCount: transfers.length,
+      itemBuilder: (context, index) {
+        return TransferItem(transfer: transfers[index]);
+      },
     );
   }
 }
@@ -47,7 +76,7 @@ class TransferItem extends StatelessWidget {
       child: ListTile(
         leading: const Icon(Icons.monetization_on),
         title: Text(transfer.value.toString()),
-        subtitle: Text(transfer.accountNmber.toString()),
+        subtitle: Text(transfer.accountNumber.toString()),
       ),
     );
   }
@@ -55,7 +84,7 @@ class TransferItem extends StatelessWidget {
 
 class Transfer {
   final double value;
-  final int accountNmber;
+  final int accountNumber;
 
-  Transfer(this.value, this.accountNmber);
+  Transfer(this.value, this.accountNumber);
 }

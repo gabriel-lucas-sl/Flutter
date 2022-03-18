@@ -1,5 +1,4 @@
 import 'package:bytebank/screens/home.dart';
-import 'package:bytebank/screens/transfer_form.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -14,7 +13,7 @@ class ByteBankApp extends StatelessWidget {
     return const MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'ByteBank App',
-      home: TransferForm(),
+      home: Home(),
     );
   }
 }
