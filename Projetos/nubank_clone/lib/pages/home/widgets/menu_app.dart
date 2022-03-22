@@ -21,6 +21,7 @@ class MenuApp extends StatelessWidget {
         duration: const Duration(milliseconds: 150),
         opacity: toogleMenu ? 1 : 0,
         child: Container(
+          // decoration: BoxDecoration,
           color: Colors.purple[800],
           height: MediaQuery.of(context).size.height * 0.55,
           child: Column(
@@ -119,7 +120,10 @@ class MenuApp extends StatelessWidget {
                           ),
                           child: const Text(
                             'SAIR DO APP',
-                            style: TextStyle(fontSize: 10),
+                            style: TextStyle(
+                              fontSize: 10,
+                              fontWeight: FontWeight.bold,
+                            ),
                           ),
                         ),
                       ),

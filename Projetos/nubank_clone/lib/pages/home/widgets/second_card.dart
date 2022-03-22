@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class FirstCard extends StatelessWidget {
-  const FirstCard({Key? key}) : super(key: key);
+class SecondCard extends StatelessWidget {
+  const SecondCard({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
