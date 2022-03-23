@@ -1,30 +1,27 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:nubank_clone/pages/splash/splash_screen.dart';
+import 'package:forest_clone/screens/home/home.dart';
 
 void main() {
   SystemChrome.setSystemUIOverlayStyle(
     const SystemUiOverlayStyle(
       statusBarBrightness: Brightness.dark,
       statusBarColor: Colors.transparent,
-      systemNavigationBarColor: Color(0xFF4A148C),
     ),
   );
-
   runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
 
+  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return const MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Nubank Design Clone',
-      theme:
-          ThemeData(primarySwatch: Colors.purple, brightness: Brightness.dark),
-      home: const SplashScreen(),
+      title: 'Flutter Demo',
+      home: Home(),
     );
   }
 }
