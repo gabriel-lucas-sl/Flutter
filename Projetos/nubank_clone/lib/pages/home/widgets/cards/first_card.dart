@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class SecondCard extends StatelessWidget {
-  const SecondCard({Key? key}) : super(key: key);
+class FirstCard extends StatelessWidget {
+  const FirstCard({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -62,7 +62,7 @@ class SecondCard extends StatelessWidget {
                                   text: 'R\$ ',
                                   children: [
                                     TextSpan(
-                                        text: '176.395',
+                                        text: '16.395',
                                         style: TextStyle(
                                           fontWeight: FontWeight.bold,
                                         )),
@@ -154,7 +154,7 @@ class SecondCard extends StatelessWidget {
                         Icons.shopping_cart,
                         color: Colors.grey,
                       ),
-                      const SizedBox(width: 5),
+                      const SizedBox(width: 10),
                       const Flexible(
                         child: Text(
                           'Compra mais recente no Super Mercado no valor de R\$ 886,45 sexta',
