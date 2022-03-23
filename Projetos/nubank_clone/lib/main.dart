@@ -1,10 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:nubank_clone/pages/home/home_page.dart';
+import 'package:nubank_clone/pages/splash/splash_screen.dart';
 
 void main() {
   SystemChrome.setSystemUIOverlayStyle(
-      SystemUiOverlayStyle(statusBarBrightness: Brightness.dark));
+    const SystemUiOverlayStyle(
+      statusBarBrightness: Brightness.dark,
+      statusBarColor: Colors.transparent,
+      systemNavigationBarColor: Color(0xFF4A148C),
+    ),
+  );
   runApp(const MyApp());
 }
 
@@ -18,7 +24,7 @@ class MyApp extends StatelessWidget {
       title: 'Nubank Design Clone',
       theme:
           ThemeData(primarySwatch: Colors.purple, brightness: Brightness.dark),
-      home: const HomePage(),
+      home: const SplashScreen(),
     );
   }
 }
