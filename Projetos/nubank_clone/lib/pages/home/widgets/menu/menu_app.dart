@@ -73,62 +73,61 @@ class MenuApp extends StatelessWidget {
               const SizedBox(
                 height: 15,
               ),
-              SingleChildScrollView(
-                child: Padding(
+              SizedBox(
+                height: MediaQuery.of(context).size.height * .25,
+                child: ListView(
                   padding: const EdgeInsets.symmetric(horizontal: 30),
-                  child: Column(
-                    children: <Widget>[
-                      const ItemMenu(
-                        icon: Icons.info_outline,
-                        text: 'Me ajuda',
-                      ),
-                      const ItemMenu(
-                        icon: Icons.person_outline,
-                        text: 'Perfil',
-                      ),
-                      const ItemMenu(
-                        icon: Icons.settings_outlined,
-                        text: 'Configurar conta',
-                      ),
-                      const ItemMenu(
-                        icon: Icons.credit_card,
-                        text: 'Configurar cartão',
-                      ),
-                      const ItemMenu(
-                        icon: Icons.store_mall_directory,
-                        text: 'Pedir conta PJ',
-                      ),
-                      const ItemMenu(
-                        icon: Icons.phone_android,
-                        text: 'Configurações do app',
-                      ),
-                      const SizedBox(
-                        height: 25,
-                      ),
-                      Container(
-                        height: 35,
-                        width: double.infinity,
-                        decoration: BoxDecoration(
-                            border:
-                                Border.all(width: 0.7, color: Colors.white54)),
-                        child: ElevatedButton(
-                          onPressed: () {},
-                          style: ElevatedButton.styleFrom(
-                            primary: Colors.purple[800],
-                            elevation: 0,
-                            shadowColor: Colors.transparent,
-                          ),
-                          child: const Text(
-                            'SAIR DO APP',
-                            style: TextStyle(
-                              fontSize: 10,
-                              fontWeight: FontWeight.bold,
-                            ),
+                  children: [
+                    const ItemMenu(
+                      icon: Icons.info_outline,
+                      text: 'Me ajuda',
+                    ),
+                    const ItemMenu(
+                      icon: Icons.person_outline,
+                      text: 'Perfil',
+                    ),
+                    const ItemMenu(
+                      icon: Icons.settings_outlined,
+                      text: 'Configurar conta',
+                    ),
+                    const ItemMenu(
+                      icon: Icons.credit_card,
+                      text: 'Configurar cartão',
+                    ),
+                    const ItemMenu(
+                      icon: Icons.store_mall_directory,
+                      text: 'Pedir conta PJ',
+                    ),
+                    const ItemMenu(
+                      icon: Icons.phone_android,
+                      text: 'Configurações do app',
+                    ),
+                    const SizedBox(
+                      height: 25,
+                    ),
+                    Container(
+                      height: 35,
+                      width: double.infinity,
+                      decoration: BoxDecoration(
+                          border:
+                              Border.all(width: 0.7, color: Colors.white54)),
+                      child: ElevatedButton(
+                        onPressed: () {},
+                        style: ElevatedButton.styleFrom(
+                          primary: Colors.purple[800],
+                          elevation: 0,
+                          shadowColor: Colors.transparent,
+                        ),
+                        child: const Text(
+                          'SAIR DO APP',
+                          style: TextStyle(
+                            fontSize: 10,
+                            fontWeight: FontWeight.bold,
                           ),
                         ),
                       ),
-                    ],
-                  ),
+                    ),
+                  ],
                 ),
               ),
             ],
